@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 
 import { RegisterComponent } from './authentication/register/register.component';
+import { IncrementadorComponent } from './components/incrementador/incrementador.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, IncrementadorComponent],
   imports: [BrowserModule, AppRoutingModule, PagesModule],
   providers: [],
   bootstrap: [AppComponent],

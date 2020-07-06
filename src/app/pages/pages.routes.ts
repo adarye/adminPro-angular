@@ -6,22 +6,20 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { NgModule } from '@angular/core';
 
 const PagesRoutes: Routes = [
-    {
-           path: '', 
-           component: PagesComponent,
-          children: [
-            { path: 'dashboard', component: DashboardComponent },
-            {path:'progress', component: ProgressComponent},
-            {path:'graficas1', component: Graficas1Component},
-            {path:'', redirectTo: 'dashboard', pathMatch:'full'},
-      
-          ]
-          }
-]
+  {
+    path: '',
+    component: PagesComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'progress', component: ProgressComponent },
+      { path: 'graficas1', component: Graficas1Component },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    ],
+  },
+];
 
 @NgModule({
-    imports: [RouterModule.forChild(PagesRoutes)],
-    exports: [RouterModule]
-  })
-  export class PAGES_ROUTES { }
-  
+  imports: [RouterModule.forChild(PagesRoutes)],
+  exports: [RouterModule],
+})
+export class PagesRoutingModule {}
