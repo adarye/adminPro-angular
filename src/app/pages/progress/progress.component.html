@@ -4,11 +4,11 @@
             <div class="card-body">
                 <h4 class="card-title">Barra de progreso</h4>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.aria-valuenow]="porcentaje" aria-valuemin="0" aria-valuemax="100" [style.width]="porcentaje + '%'"></div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.aria-valuenow]="porcentaje1" aria-valuemin="0" aria-valuemax="100" [style.width]="porcentaje1 + '%'"></div>
                 </div>
                 <br>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.aria-valuenow]="porcentaje" aria-valuemin="0" aria-valuemax="100" [style.width]="porcentaje + '%'"></div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.aria-valuenow]="porcentaje2" aria-valuemin="0" aria-valuemax="100" [style.width]="porcentaje2 + '%'"></div>
                 </div>
 
             </div>
@@ -20,25 +20,14 @@
 <div class="row">
     <div class="col-6">
         <div class="card">
-            <div class="card-body">
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" (click)="cambiarValor(-10)"><li class="fa fa-minus"></li></button>
-                    </span>
-                    <input type="text" class="form-control" name="porcentaje" [(ngModel)]="porcentaje" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" (click)="cambiarValor(+10)"><li class="fa fa-plus"></li></button>
-                    </span>
-                </div>
+            <app-incrementador (cambioPorcentaje)="porcentaje1 = $event" [leyenda]="'progress azul'" [porcentaje]="porcentaje1"></app-incrementador>
 
-
-            </div>
         </div>
     </div>
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                Hola
+                <app-incrementador (cambioPorcentaje)="porcentaje2 = $event" [leyenda]="'progress verde'" [porcentaje]="porcentaje2"></app-incrementador>
 
 
             </div>
