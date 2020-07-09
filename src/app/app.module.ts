@@ -11,12 +11,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 
 import { RegisterComponent } from './authentication/register/register.component';
-import { GraficadonaComponent } from './components/graficadona/graficadona.component';
+import { ServiceModule } from './services/service.module';
+
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, GraficadonaComponent],
-  imports: [BrowserModule, AppRoutingModule, PagesModule, FormsModule],
+  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  imports: [BrowserModule, AppRoutingModule, PagesModule, FormsModule, ServiceModule],
   providers: [],
   bootstrap: [AppComponent],
 })

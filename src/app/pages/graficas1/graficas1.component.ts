@@ -16,6 +16,21 @@ export class Graficas1Component implements OnInit {
     [250, 130, 70],
   ];
   public doughnutChartType: ChartType = 'doughnut';
+  graficos:any = [
+  {
+      labels: ['con frijoles', 'con natilla', 'con tocino'],
+      data: [24,31,50],
+      type: 'doughnut',
+      leyenda: 'el pan se come con'
+  },
+  {
+    labels: ['gracias', 'con gusto', 'you'],
+    data: [24,31,50],
+    type: 'doughnut',
+    leyenda: 'saludo'
+}
+    
+  ]
   constructor() { }
 
   ngOnInit(): void {

@@ -4,6 +4,7 @@ import { NopageFoundComponent } from './nopagefound/nopagefound.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     SidebarComponent,
     BreadcrumbsComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     NopageFoundComponent,
     HeaderComponent,

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { SettingsService } from './services/service.index';
+declare function init_plugins();
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'adminpro';
+
+  constructor(){
+    init_plugins();
+
+  }
 }
+

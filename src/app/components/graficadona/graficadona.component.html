@@ -1,11 +1,11 @@
-<div class="col-12">
+<div class="col-12" *ngFor="let item of data">
     <div class="card">
         <div class="card-body">
             <div>
                 <div>
                     <div style="display: block">
-                        <!-- <canvas baseChart [data]="data" [labels]="labels" [chartType]="type">
-                    </canvas> -->
+                        <canvas baseChart [data]="item.data" [labels]="item.labels" [chartType]="item.type">
+                    </canvas>
                     </div>
                 </div>
             </div>
