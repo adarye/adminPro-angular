@@ -1,26 +1,38 @@
-<div class="preloader">
-    <div class="lds-ripple">
-        <div class="lds-pos"></div>
-        <div class="lds-pos"></div>
-    </div>
-</div>
-
 <div id="main-wrapper">
     <app-header></app-header>
-
     <app-sidebar></app-sidebar>
-
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
     <div class="page-wrapper">
-        <app-breadcrumbs></app-breadcrumbs>
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
         <div class="container-fluid">
+            <app-breadcrumbs></app-breadcrumbs>
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
             <router-outlet></router-outlet>
+            <!--
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+              </div>
+            </div>
+          </div>
         </div>
+        -->
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
 
-        <div class="container-fluid">
-            <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by
-                <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
         </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+
     </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
 </div>

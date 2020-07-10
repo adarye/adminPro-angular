@@ -1,26 +1,35 @@
-<aside class="left-sidebar" data-sidebarbg="skin5">
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
     <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
-            <ul id="sidebarnav" class="p-t-30">
-                <!-- <li class="sidebar-item" *ngFor="let menu of _sidebar.menu">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i [class]="menu.icono"></i
-            ><span class="hide-menu">{{menu.titulo}}</span></a
-          >
-        </li> -->
-                <li class="sidebar-item" *ngFor="let menu of _sidebar.menu">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i [class]="menu.icono"></i
-            ><span class="hide-menu">{{menu.titulo}} </span></a
-          >
-          <ul aria-expanded="false" class="collapse first-level">
-            <li routerLinkActive="Active" class="sidebar-item"  *ngFor="let submenu of menu.submenu">
-              <a  [routerLink]="[submenu.url]" class="sidebar-link"
-                ><i class="mdi mdi-note-outline"></i
-                ><span class="hide-menu">{{submenu.titulo}} </span></a
-              >
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
+            <ul id="sidebarnav">
+                <li class="user-profile">
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="assets/images/users/profile.png" alt="user" /><span class="hide-menu">Steave Jobs </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="javascript:void()">My Profile </a></li>
+                        <li><a href="javascript:void()">My Balance</a></li>
+                        <li><a href="javascript:void()">Inbox</a></li>
+                        <li><a href="javascript:void()">Account Setting</a></li>
+                        <li><a [routerLink]="['/login']">Logout</a></li>
+                    </ul>
+                </li>
+                <li class="nav-devider"></li>
+                <li class="nav-small-cap">PERSONAL</li>
+                <li *ngFor="let menu of _sidebar.menu">
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i [class]="'mdi '+ menu.icono"></i><span class="hide-menu">{{menu.titulo}} <span class="label label-rouded label-themecolor pull-right">{{menu.submenu.length}}</span></span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li *ngFor="let submenu of menu.submenu">
+                            <a routerLinkActive="active" [routerLink]="[submenu.url]">{{submenu.titulo}} </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
 </aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->

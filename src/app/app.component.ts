@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SettingsService } from './services/service.index';
+
 declare function init_plugins();
 
 
@@ -8,12 +9,11 @@ declare function init_plugins();
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'adminpro';
 
-  constructor(){
+  ngOnInit(): void {
     init_plugins();
-
   }
 }
 
