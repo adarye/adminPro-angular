@@ -6,12 +6,12 @@ import { NopageFoundComponent } from './shared/nopagefound/nopagefound.component
 import { RegisterComponent } from './authentication/register/register.component';
 import { PagesComponent } from './pages/pages.component';
 import { PagesModule } from './pages/pages.module';
+import { PagesRoutingModule } from './pages/pages.routes';
 
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+    path: '', redirectTo: '/dashboard', pathMatch: 'full'
   },
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
@@ -19,7 +19,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    PagesRoutingModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
