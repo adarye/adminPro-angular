@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from './services/service.index';
 
+
 declare function init_plugins();
 
 

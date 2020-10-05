@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { clear } from 'console';
 
 @Component({
   selector: 'app-promesas',
@@ -8,31 +7,31 @@ import { clear } from 'console';
 })
 export class PromesasComponent implements OnInit {
   constructor() {
-   
+
     this.contarTres().then(
-      mensaje =>console.log('termino', mensaje)
-     
+      mensaje => console.log('termino', mensaje)
+
     )
-    .catch(error => console.log(error))
+      .catch(error => console.log(error))
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  contarTres(): Promise<boolean>{
+  contarTres(): Promise<boolean> {
     let contador = 0;
-   return new Promise((res, reject) => {
-     let intervalo = setInterval(() => {
+    return new Promise((res, reject) => {
+      const intervalo = setInterval(() => {
         contador += 1;
         console.log(contador);
         if (contador === 3) {
           res(true);
-         clearInterval(intervalo)
-         
+          clearInterval(intervalo);
+
         }
       }, 1000);
     });
 
-   
+
 
   }
 }
