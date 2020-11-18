@@ -14,7 +14,7 @@
                         <li><a href="javascript:void()">My Balance</a></li>
                         <li><a href="javascript:void()">Inbox</a></li>
                         <li><a routerLink="account-settings">Account Setting</a></li>
-                        <li><a routerLink="/login">Logout</a></li>
+                        <li><a (click)="_usuarioService.logout()">Logout</a></li>
                     </ul>
                 </li>
                 <li class="nav-devider"></li>
@@ -23,8 +23,8 @@
                 <li *ngFor="let item of _sidebar.menu" routerLinkActive="active">
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="true">
                         <i class="mdi mdi-gauge"></i>
-                        <span class="hide-menu"> 
-                            {{ item.titulo }} 
+                        <span class="hide-menu">
+                            {{ item.titulo }}
                             <span class="label label-rouded label-themecolor pull-right">
                                 {{ item.submenu.length }}
                             </span>

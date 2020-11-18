@@ -14,8 +14,8 @@ import { UsuarioService } from 'src/app/services/service.index';
 })
 export class LoginComponent implements OnInit {
 
-  recuerdame:boolean = false;
-  constructor(public router: Router, public _usuarioService:UsuarioService) {
+  recuerdame: boolean = false;
+  constructor(public router: Router, public _usuarioService: UsuarioService) {
 
   }
 
@@ -24,13 +24,23 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar(forma: NgForm) {
-    console.log(forma.invalid);
-    if(forma.invalid){
+    if (forma.invalid) {
       return;
     }
-    let usuario = new Usuario(null, forma.value.email, forma.value.password);
+    // let usuario = new Usuario(null, forma.value.email, forma.value.password);
+    const usuario: Usuario = {
+      username: forma.value.email,
+      password: forma.value.password,
+      grant_type: 'password',
+      client_id: 6,
+      client_secret: 'ZkRqBmiKtNhr59ZyTWRdytiJH0QWTZMezuHxIExj'
+    };
     this._usuarioService.login(usuario, forma.value.recuerdame)
-    .subscribe(res=>console.log(res));
+      .subscribe((res: any) => {
+        localStorage.setItem('token', res.access_token)
+        this.router.navigate(['/dashboard'])
+      }
+      );
 
   }
 
