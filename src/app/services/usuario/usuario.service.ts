@@ -1,4 +1,4 @@
-import { URL_SERVICIOS } from './../../config/config';
+import { URL_SERVICIOS, URL_API } from './../../config/config';
 import { Usuario } from './../../models/usuario.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 })
 export class UsuarioService {
 
-  token: string;
+  token: string = "";
+
+  usuario: Usuario;
 
   constructor(
     public http: HttpClient,
@@ -35,20 +37,28 @@ export class UsuarioService {
 
     });
   }
+  update(usuario: Usuario){
+    const url = URL_API + 'user-update';
+    return this.http.post(url, usuario, {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      })
+
+    });
+  }
 
   validarEstadoLogin(): boolean {
     return (this.token.length > 5) ? true : false;
 
   }
 
-  logout(){
+  logout() {
     this.token = ''
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 
   crearUsuario(usuario: Usuario) {
-    console.log(usuario);
     const url = URL_SERVICIOS + 'register';
     return this.http.post(url, usuario, {
       headers: new HttpHeaders({

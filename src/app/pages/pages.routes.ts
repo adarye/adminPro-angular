@@ -1,3 +1,5 @@
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ProfileComponent } from './profile/profile.component';
 import { LoginGuardGuard } from './../services/guards/login-guard.guard';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { PagesComponent } from './pages.component';
@@ -21,6 +23,9 @@ const PagesRoutes: Routes = [
       { path: 'promesas', component: PromesasComponent, data: {titulo: 'Promesas'}  },
       { path: 'rxjs', component: RxjsComponent, data: {titulo: 'RXJS'}  },
       { path: 'settings', component: AccountSettingsComponent, data: {titulo: 'Ajuestes de Tema'}  },
+      { path: 'perfil', component: ProfileComponent, data: {titulo: 'Perfil de usuario'}  },
+      //Mantenimientos
+      { path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento de usuarios'}  },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },

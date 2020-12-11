@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -6,6 +7,7 @@ import {FormsModule} from '@angular/forms'
 import { SharedModule } from '../shared/shared.module';
 
 import { ChartsModule } from 'ng2-charts';
+
 
 import { GraficadonaComponent } from '../components/graficadona/graficadona.component';
 
@@ -17,6 +19,11 @@ import { PagesRoutingModule } from './pages.routes';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
+import { ProfileComponent } from './profile/profile.component';
+
+import { PipesModule } from './../pipes/pipes.module';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+
 
 
 
@@ -30,20 +37,23 @@ import { PromesasComponent } from './promesas/promesas.component';
     IncrementadorComponent,
     GraficadonaComponent,
     AccountSettingsComponent,
-    PromesasComponent
+    PromesasComponent,
+    ProfileComponent,
+    UsuariosComponent
   ],
   imports: [
     SharedModule,
     PagesRoutingModule,
     FormsModule,
     ChartsModule,
-    CommonModule
+    CommonModule,
+    PipesModule
   ],
   exports: [
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
-    PagesComponent
+    PagesComponent,
   ],
   providers: [],
 })

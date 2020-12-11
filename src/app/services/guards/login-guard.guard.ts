@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { UsuarioService } from '../service.index';
+import { UsuarioService } from '../usuario/usuario.service';
 
 
 @Injectable({
@@ -11,13 +11,11 @@ export class LoginGuardGuard implements CanActivate {
 
   }
   canActivate() {
-    console.log(this._usuarioService.validarEstadoLogin);
-    if (localStorage.getItem('token')) {
-      console.log('si Pasa');
+
+    if (this._usuarioService.validarEstadoLogin()) {
       return true;
     }
     else {
-      console.log('no pasa')
       this.router.navigate(['/login'])
       return false;
 
