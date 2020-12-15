@@ -77,5 +77,18 @@ export class UsuarioService {
     })
 
   }
+   getUsuarios(desde: number = 0){
+    const url = URL_API + 'users';
+    return this.http.get(url, {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Accept': 'application/json'
+      })
+
+    }).map((res: any) => {
+
+      return res;
+    })
+   }
 
 }
