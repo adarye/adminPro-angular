@@ -2,13 +2,13 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <input #input type="text" class="form-control" placeholder="Buscar usuario" />
+                <input [(ngModel)]="buscador" #input (keyup)="buscarUsuario(input.value)" type="text" class="form-control" placeholder="Buscar usuario" />
             </div>
         </div>
     </div>
 </div>
 
-<div class="row animated fadeIn">
+<div class="row animated fadeIn" *ngIf="loading">
     <div class="col-md-12">
         <div class="alert alert-warning text-center">
 
@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<div class="row animated fadeIn">
+<div class="row animated fadeIn" *ngIf="!loading">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -57,8 +57,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-secondary">Anteriores</button>
-                <button class="btn btn-secondary">Siguiente</button>
+                <button class="btn btn-secondary" (click)="backPage()" [disabled]="desde <= 1">Anterior</button>
+                <button class="btn btn-secondary" (click)="nextPage()" [disabled]="desde == hasta">Siguiente</button>
             </div>
         </div>
     </div>

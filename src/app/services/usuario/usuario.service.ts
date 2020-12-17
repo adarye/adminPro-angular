@@ -78,7 +78,20 @@ export class UsuarioService {
 
   }
    getUsuarios(desde: number = 0){
-    const url = URL_API + 'users';
+    const url = URL_API + 'users?page='+desde;
+    return this.http.get(url, {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Accept': 'application/json'
+      })
+
+    }).map((res: any) => {
+
+      return res;
+    })
+   }
+   buscarUsuarios(param: string, desde: number = 0){
+     const url = URL_API + 'users/'+param + '?page='+desde;
     return this.http.get(url, {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
