@@ -1,6 +1,7 @@
 import { UsuarioService } from 'src/app/services/service.index';
 import { Usuario } from './../../models/usuario.model';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-usuarios',
@@ -14,7 +15,7 @@ export class UsuariosComponent implements OnInit {
   total: number = 0;
   hasta: number = 0;
   loading: boolean = true;
-  buscador: string;
+  buscador: string = "";
 
 
   constructor(public _usuarioService: UsuarioService) { }
@@ -52,6 +53,49 @@ export class UsuariosComponent implements OnInit {
         this.total = res.total;
         this.hasta = res.last_page
         this.desde = res.current_page
+      })
+  }
+
+  destroyUsuario(id: bigint) {
+    if (this._usuarioService.usuario.id === id) {
+      Swal.fire({
+        title: 'Transacción erronea',
+        text: 'Este usuario no se puede eliminar, esta logueado actualmente.',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+    }
+    else {
+      Swal.fire({
+        title: 'Esta seguro?',
+        text: "No podras revertirlo después",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this._usuarioService.destroyUsuario(id)
+            .subscribe(res => {
+              Swal.fire(
+                'Eliminado!',
+                'Este usuario ha sido eliminado correctamente.',
+                'success'
+              )
+              this.cargarUsuarios();
+            })
+
+        }
+      })
+    }
+
+  }
+  actualizarUsuario(usuario: Usuario) {
+    console.log(usuario);
+    this._usuarioService.updateUser(usuario, usuario.id)
+      .subscribe(res => {
+        console.log(res);
       })
   }
 

@@ -1,4 +1,5 @@
 
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +11,8 @@ import { ChartsModule } from 'ng2-charts';
 
 
 import { GraficadonaComponent } from '../components/graficadona/graficadona.component';
+import { ModalUploadComponent } from './../components/modal-upload/modal-upload.component';
+
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -39,7 +42,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     AccountSettingsComponent,
     PromesasComponent,
     ProfileComponent,
-    UsuariosComponent
+    UsuariosComponent,
+     ModalUploadComponent
   ],
   imports: [
     SharedModule,
