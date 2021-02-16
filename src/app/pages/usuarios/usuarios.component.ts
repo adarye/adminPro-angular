@@ -1,3 +1,4 @@
+import { ModalUploadService } from './../../components/modal-upload/modal-upload.service';
 import { UsuarioService } from 'src/app/services/service.index';
 import { Usuario } from './../../models/usuario.model';
 import { Component, OnInit } from '@angular/core';
@@ -18,10 +19,11 @@ export class UsuariosComponent implements OnInit {
   buscador: string = "";
 
 
-  constructor(public _usuarioService: UsuarioService) { }
+  constructor(public _usuarioService: UsuarioService, public _modalUploadService: ModalUploadService) { }
 
   ngOnInit(): void {
     this.cargarUsuarios();
+    this._modalUploadService.notificacion.subscribe(res => this.cargarUsuarios());
   }
 
   cargarUsuarios() {

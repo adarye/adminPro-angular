@@ -29,14 +29,12 @@ export class LoginComponent implements OnInit {
     }
     // let usuario = new Usuario(null, forma.value.email, forma.value.password);
     const usuario: Usuario = {
-      username: forma.value.email,
+      email: forma.value.email,
       password: forma.value.password,
-      grant_type: 'password',
-      client_id: 6,
-      client_secret: 'ZkRqBmiKtNhr59ZyTWRdytiJH0QWTZMezuHxIExj'
     };
     this._usuarioService.login(usuario, forma.value.recuerdame)
       .subscribe((res: any) => {
+        console.log(res.access_token);
         localStorage.setItem('token', res.access_token)
         this.router.navigate(['/dashboard'])
       }

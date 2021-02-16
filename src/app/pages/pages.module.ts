@@ -26,6 +26,8 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { PipesModule } from './../pipes/pipes.module';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HospitalesComponent } from './hospitales/hospitales/hospitales.component';
+
 
 
 
@@ -43,7 +45,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     PromesasComponent,
     ProfileComponent,
     UsuariosComponent,
-     ModalUploadComponent
+     ModalUploadComponent,
+     HospitalesComponent,
   ],
   imports: [
     SharedModule,

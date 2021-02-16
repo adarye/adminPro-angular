@@ -24,8 +24,9 @@ export class UsuarioService {
     this.token = localStorage.getItem('token');
   }
   login(usuario: Usuario, recuerdame: boolean = false) {
-    const url = URL_SERVICIOS + 'oauth/token';
-    return this.http.post(url, usuario);
+    const url = URL_SERVICIOS + 'login';
+    return this.http.post(url, usuario,
+    )
 
   }
   get() {
@@ -33,11 +34,12 @@ export class UsuarioService {
     let user;
     user = this.http.get(url, {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Authorization': `Bearer ${this.token}`,
       })
     });
     user.subscribe(res => {
       this.usuario = res;
+      console.log(res);
     });
     return user;
   }

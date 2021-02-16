@@ -13,3 +13,12 @@
 .oculto {
     display: none;
 }
+
+.w150 {
+    width: 150px;
+}
+
+.icon {
+    width: 100px;
+    height: 70px;
+}

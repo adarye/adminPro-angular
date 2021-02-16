@@ -10,12 +10,13 @@ import { NgModule } from '@angular/core';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { HospitalesComponent } from './hospitales/hospitales/hospitales.component';
 
 const PagesRoutes: Routes = [
   {
     path: '',
     component: PagesComponent,
-    canActivate: [LoginGuardGuard],
+     canActivate: [LoginGuardGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent, data: {titulo: 'Dashboard'} },
       { path: 'progress', component: ProgressComponent, data: {titulo: 'ProgressBar'}  },
@@ -26,6 +27,7 @@ const PagesRoutes: Routes = [
       { path: 'perfil', component: ProfileComponent, data: {titulo: 'Perfil de usuario'}  },
       //Mantenimientos
       { path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento de usuarios'}  },
+      { path: 'hospitales', component: HospitalesComponent, data: {titulo: 'Mantenimiento de hospitales'}  },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
