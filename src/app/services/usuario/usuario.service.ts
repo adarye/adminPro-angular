@@ -32,11 +32,7 @@ export class UsuarioService {
   get() {
     const url = URL_SERVICIOS + 'user';
     let user;
-    user = this.http.get(url, {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.token}`,
-      })
-    });
+    user = this.http.get(url);
     user.subscribe(res => {
       this.usuario = res;
       console.log(res);
@@ -45,21 +41,12 @@ export class UsuarioService {
   }
   update(usuario: Usuario) {
     const url = URL_API + 'user-update';
-    return this.http.post(url, usuario, {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-      })
-
-    });
+    return this.http.post(url, usuario);
   }
+
   updateUser(usuario: Usuario, id: bigint) {
     const url = URL_API + 'users-update/' + id;
-    return this.http.put(url, usuario, {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-      })
-
-    });
+    return this.http.put(url, usuario);
   }
 
   validarEstadoLogin(): boolean {
@@ -67,20 +54,13 @@ export class UsuarioService {
   }
 
   logout() {
-    this.token = ''
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 
   crearUsuario(usuario: Usuario) {
     const url = URL_SERVICIOS + 'register';
-    return this.http.post(url, usuario, {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer VT4Tm7c3u45evrJyQkUKGaSapWwSXTYrR9oZjKH`,
-        'Accept': 'application/json'
-      })
-
-    }).map((res: any) => {
+    return this.http.post(url, usuario).map((res: any) => {
       Swal.fire({
         title: 'Correcto',
         text: res.email,
@@ -89,44 +69,23 @@ export class UsuarioService {
       })
       return res;
     })
-
   }
   getUsuarios(desde: number = 0) {
     const url = URL_API + 'users?page=' + desde;
-    return this.http.get(url, {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        'Accept': 'application/json'
-      })
-
-    }).map((res: any) => {
-
+    return this.http.get(url).map((res: any) => {
       return res;
     })
   }
+
   buscarUsuarios(param: string, desde: number = 0) {
     const url = URL_API + 'users/' + param + '?page=' + desde;
-    return this.http.get(url, {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        'Accept': 'application/json'
-      })
-
-    }).map((res: any) => {
-
+    return this.http.get(url).map((res: any) => {
       return res;
     })
   }
   destroyUsuario(id: bigint) {
     const url = URL_API + 'users-delete/' + id;
-    return this.http.get(url, {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        'Accept': 'application/json'
-      })
-
-    }).map((res: any) => {
-
+    return this.http.get(url).map((res: any) => {
       return res;
     })
   }

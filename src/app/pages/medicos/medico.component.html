@@ -1,0 +1,50 @@
+<div class="row">
+
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Medico: Nombre Medico</h4>
+
+                <form #f="ngForm" ngNativeValidate class="" (ngSubmit)="create(f)">
+                    <div class="form-floating mb-3">
+                        <input required [(ngModel)]="medico.nombre" name="nombre" type="text" class="form-control border border-primary" placeholder="Nombre">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select (change)="cambioHospital($event)" [(ngModel)]="medico.hospitales_id" name="hospitales_id" id="" class="form-control" required>
+                          <option [value]="null">Seleccione hospital</option>
+                          <option *ngFor="let hospital of hospitales" [value]="hospital.id">{{hospital.nombre}}</option>
+                        </select>
+
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <div class="mt-3 mt-md-0 ms-auto">
+                            <button type="submit" class="btn btn-primary font-weight-medium rounded-pill px-4">
+                          <div class="d-flex align-items-center">
+                              Guardar
+                          </div>
+                      </button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Hospital {{hospital.nombre}}</h4>
+                <img *ngIf="hospital.img" class="rounded img-fluid" [src]="'http://hospital.local/theme/images/hospitals/'+ hospital.img">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3" *ngIf="medico.id">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Fotografia del medico</h4>
+                <img *ngIf="hospital.img" class="rounded img-fluid" [src]="'http://hospital.local/theme/images/medicos/'+ medico.img">
+            </div>
+        </div>
+    </div>
+</div>
