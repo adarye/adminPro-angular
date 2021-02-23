@@ -3,7 +3,7 @@ import { Hospital } from './hospital.model';
 
 export class Medico{
   constructor(
-    public id?: BigInteger,
+    public id?: bigint,
     public nombre?: string,
     public img?: string,
     public usuarios_id?: BigInteger,

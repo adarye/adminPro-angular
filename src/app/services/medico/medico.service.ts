@@ -17,6 +17,10 @@ export class MedicoService {
     let url = URL_API + 'medicos';
     return this.http.post(url, medico);
   }
+  update(medico:Medico, id:bigint){
+    let url = URL_API + 'medicos/' + id;
+    return this.http.put(url, medico);
+  }
   searchMedico(param: string, desde: number = 0) {
     const url = URL_API + 'medicos/search/' + param + '?page=' + desde;
     return this.http.get(url).map((res: any) => {
@@ -26,6 +30,10 @@ export class MedicoService {
   destroy(id:number){
     let url = URL_API + 'medicos'+ '/'+ id;
     return this.http.delete(url);
+  }
+  show(id:number){
+    let url = URL_API + 'medicos/' + id
+    return this.http.get(url);
   }
 
 

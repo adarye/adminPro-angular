@@ -42,8 +42,8 @@
     <div class="col-md-3" *ngIf="medico.id">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Fotografia del medico</h4>
-                <img *ngIf="hospital.img" class="rounded img-fluid" [src]="'http://hospital.local/theme/images/medicos/'+ medico.img">
+                <h4 class="card-title">Fotografia del medico {{medico.id}}</h4>
+                <img *ngIf="medico.img" (click)="_modalUploadService.mostrarModal('medicos', medico.id)" class="rounded img-fluid" [src]="'http://hospital.local/theme/images/medicos/'+ medico.img">
             </div>
         </div>
     </div>

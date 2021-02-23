@@ -43,7 +43,7 @@
                             <td>
                                 <button *ngIf="!hospital.img" (click)="_modalUploadService.mostrarModal('hospital',hospital.id)" class="btn btn-success">Subir</button>
                                 <div>
-                                    <img *ngIf="hospital.img" class="icon" [src]="'http://hospital.local/theme/images/hospitals/'+ hospital.img"></div>
+                                    <img (click)="_modalUploadService.mostrarModal('hospital',hospital.id)" *ngIf="hospital.img" class="icon" [src]="'http://hospital.local/theme/images/hospitals/'+ hospital.img"></div>
                             </td>
                             <td><input [(ngModel)]="hospital.nombre" class="form-control"></td>
                             <td>
