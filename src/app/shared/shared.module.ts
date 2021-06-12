@@ -1,3 +1,4 @@
+import { ModalUploadComponent } from './../components/modal-upload/modal-upload.component';
 import { PipesModule } from './../pipes/pipes.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,6 +14,7 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     SidebarComponent,
     BreadcrumbsComponent,
+     ModalUploadComponent
   ],
   imports: [CommonModule, RouterModule, PipesModule],
   exports: [
@@ -20,6 +22,7 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     SidebarComponent,
     BreadcrumbsComponent,
+     ModalUploadComponent
   ],
   providers: [],
 })

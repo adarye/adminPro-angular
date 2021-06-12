@@ -12,10 +12,11 @@ import {
   LoginGuardGuard
 } from './service.index';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminGuard } from './guards/admin.guard';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule, HttpClientModule],
-  providers: [SettingsService, SharedService, SidebarService, UsuarioService, SubirArchivosService, LoginGuardGuard, ModalUploadService],
+  providers: [SettingsService, SharedService, SidebarService, UsuarioService, SubirArchivosService, LoginGuardGuard, ModalUploadService, AdminGuard],
 })
 export class ServiceModule {}

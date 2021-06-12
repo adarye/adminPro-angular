@@ -11,7 +11,7 @@ import { ChartsModule } from 'ng2-charts';
 
 
 import { GraficadonaComponent } from '../components/graficadona/graficadona.component';
-import { ModalUploadComponent } from './../components/modal-upload/modal-upload.component';
+
 
 
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -29,6 +29,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
+import { BusquedGeneralComponent } from './busqued-general/busqued-general.component';
 
 
 
@@ -40,17 +41,18 @@ import { MedicoComponent } from './medicos/medico.component';
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
-    PagesComponent,
+    //PagesComponent,
     IncrementadorComponent,
     GraficadonaComponent,
     AccountSettingsComponent,
     PromesasComponent,
     ProfileComponent,
     UsuariosComponent,
-     ModalUploadComponent,
+    //  ModalUploadComponent,
      HospitalesComponent,
      MedicosComponent,
      MedicoComponent,
+     BusquedGeneralComponent,
   ],
   imports: [
     SharedModule,
@@ -64,7 +66,7 @@ import { MedicoComponent } from './medicos/medico.component';
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
-    PagesComponent,
+    //PagesComponent,
   ],
   providers: [],
 })
